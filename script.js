@@ -43,8 +43,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         with(document.frmGenerator){
 
             if (txtName.value == ""){
-                var pw0 = aAdjs0[rand(aAdjs.length-1)];
-                var pw1 = aAdjs1[rand(aAdjs.length-1)];
+                var pw0 = aAdjs0[rand(aAdjs0.length-1)];
+                var pw1 = aAdjs1[rand(aAdjs1.length-1)];
                 var pw2 = aNouns[rand(aNouns.length-1)];
             } else {
                 var num = 0;
@@ -53,8 +53,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                         num += txtName.value.charCodeAt(i);
                     }
                 }
-                var pw0 = aAdjs[num % (aAdjs0.length-1)];
-                var pw1 = aAdjs[num % (aAdjs1.length-1)];
+                var pw0 = aAdjs0[num % (aAdjs0.length-1)];
+                var pw1 = aAdjs1[num % (aAdjs1.length-1)];
                 var pw2 = aNouns[num % (aNouns.length-1)];
             }
 
