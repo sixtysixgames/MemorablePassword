@@ -15,12 +15,23 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 /* 
-    Created on : 7 Aug 2021, 10:59:41
+    Created on : 
     Author     : sixtysixgames
 */
+    var aAdjs0 = new Array(
+ "baked", "bald", "bare", "big", "boiled", "brawny", "broad", "broken", "bumpy", "burly", "burnt",  "chubby", "chunky", "clean", "crispy", "crusty", "curly", "damp", "dark", "dead",
+ "dirty", "drab", "droopy", "dry", "dusty", "dwarf", "elfin", "fat", "filthy", "flabby", "flaky", "flat", "fluffy", "foamy", "foggy", "fried", "frozen",  "gaudy", "giant",  "grassy", "greasy", 
+ "hairy", "huge", "jagged", "large", "little", "long", "lumpy", "meaty", "mega", "messy", "minced", "mini", "misty", "moist", "mouldy", "mucky", "muddy", "murky", "mushy", "naked", "narrow",
+ "petite", "nude", "old", "pretty", "puny", "regal", "roast", "rough", "royal", "rusty", "saggy", "scabby", "shiny", "short", "sick", "sickly", "skinny", "slim", "slimy", "sloppy", "small", 
+ "smooth", "snotty", "soggy", "spiky", "spiny", "spotty", "sticky", "stout", "stripy", "tall", "thick", "thin", "tiny", "ugly", "vast", "watery", "wavy", "wet", "wide", "young",
+        );
 
-    var aAdjs = new Array(
-"amber", "azure", "baked", "bald", "bamboo", "bare", "beige", "big", "black", "blonde", "blue", "boiled", "bone", "bony", "brass", "brawny", "brick", "broad", "broken", "bronze", "brown", "bumpy", "burly", "burnt", "canvas", "cerise", "cheese", "cheesy", "chrome", "chubby", "chunky", "clay", "clean", "cloth", "copper", "cork", "cotton", "cream", "crispy", "crusty", "curly", "cyan", "damp", "dark", "dead", "denim", "dirty", "drab", "droopy", "dry", "dusty", "dwarf", "ebony", "elfin", "fat", "filthy", "flabby", "flaky", "flat", "flax", "flaxen", "flint", "fluffy", "foamy", "foggy", "fried", "frozen", "fur", "furry", "gaudy", "giant", "ginger", "glass", "gold", "golden", "grassy", "greasy", "green", "grey", "hairy", "huge", "ice", "iced", "icy", "indigo", "iron", "ivory", "jade", "jagged", "khaki", "lace", "lacy", "large", "lead", "lilac", "linen", "little", "long", "lumpy", "maroon", "mauve", "meaty", "mega", "messy", "metal", "midget", "milky", "minced", "mini", "misty", "moist", "mossy", "mouldy", "mucky", "muddy", "murky", "mushy", "naked", "narrow", "nickel", "nude", "nylon", "oak", "old", "orange", "paper", "petite", "pewter", "pine", "pink", "pretty", "puny", "purple", "quartz", "red", "regal", "roast", "rock", "rocky", "rough", "royal", "rubber", "ruby", "rusty", "saggy", "sandy", "scabby", "sepia", "shell", "shiny", "short", "sick", "sickly", "silk", "silken", "silky", "silver", "skinny", "slate", "slim", "slimy", "sloppy", "small", "smooth", "snotty", "snow", "snowy", "soggy", "spiky", "spiny", "sponge", "spongy", "spotty", "steel", "sticky", "stone", "stony", "stout", "straw", "stripy", "suede", "tall", "tan", "thick", "thin", "tin", "tinny", "tiny", "ugly", "vast", "velvet", "violet", "watery", "wavy", "wax", "waxy", "wet", "white", "wide", "wire", "wiry", "wood", "wooden", "wool", "woolly", "yellow", "young", "zinc" 
+    var aAdjs1 = new Array(
+"amber", "azure", "bamboo", "beige", "black", "blonde", "blue", "bone", "bony", "brass", "brick", "bronze", "brown", "canvas", "cerise", "cheese", "cheesy", "chrome", "clay", "cloth", 
+"copper", "cork", "cotton", "cream", "cyan", "denim", "ebony", "flax", "flaxen", "flint", "fur", "furry", "ginger", "glass", "gold", "golden", "green", "grey", "ice", "iced", "icy", 
+"indigo", "iron", "ivory", "jade", "khaki", "lace", "lacy", "lead", "lilac", "linen", "maroon", "mauve", "metal", "midget", "milky", "mossy", "nickel", "nylon", "oak", "orange", "paper", 
+"pewter", "pine", "pink", "purple", "quartz", "red", "rock", "rocky", "rubber", "ruby", "sandy", "sepia", "shell", "silk", "silken", "silky", "silver", "slate",  "snow", "snowy", "sponge", 
+"spongy", "steel", "stone", "stony", "straw", "suede", "tan", "tin", "tinny", "velvet", "violet", "wax", "waxy", "white", "wire", "wiry", "wood", "wooden", "wool", "woolly", "yellow", "zinc" 
 );
 
     var aNouns = new Array(
@@ -32,7 +43,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         with(document.frmGenerator){
 
             if (txtName.value == ""){
-                var pw1 = aAdjs[rand(aAdjs.length-1)];
+                var pw0 = aAdjs0[rand(aAdjs.length-1)];
+                var pw1 = aAdjs1[rand(aAdjs.length-1)];
                 var pw2 = aNouns[rand(aNouns.length-1)];
             } else {
                 var num = 0;
@@ -41,12 +53,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                         num += txtName.value.charCodeAt(i);
                     }
                 }
-                var pw1 = aAdjs[num % (aAdjs.length-1)];
+                var pw0 = aAdjs[num % (aAdjs0.length-1)];
+                var pw1 = aAdjs[num % (aAdjs1.length-1)];
                 var pw2 = aNouns[num % (aNouns.length-1)];
             }
 
-            txtPassword.value = pw1.substring(0, 1).toUpperCase() + pw1.substring(1, pw1.length) +
-                pw2.substring(0, 1).toUpperCase() + pw2.substring(1, pw2.length);
+            txtPassword.value = pw0.substring(0, 1).toUpperCase() + pw0.substring(1, pw0.length) +
+                    pw1.substring(0, 1).toUpperCase() + pw1.substring(1, pw1.length) +
+                    pw2.substring(0, 1).toUpperCase() + pw2.substring(1, pw2.length);
         }
     }
 
